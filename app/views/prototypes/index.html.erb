@@ -1,0 +1,17 @@
+<main class="main">
+  <div class="inner">
+    <h1></h1>
+    <%# application.html.erbのheaderファイルに記入済→→→ログアウト状態の時に、新規登録ボタンとログインボタンをヘッダーに表示 %>
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、<%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %>
+      </div>
+    <% end %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%= render partial: "prototype", collection: @prototypes %>
+    </div>
+  </div>
+</main>
